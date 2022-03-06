@@ -1,6 +1,6 @@
 name: form_bloc
 description: Form bloc package for dart bloc.
-version: 0.0.3
+version: 0.0.4
 # homepage: https://www.example.com
 
 environment:
@@ -13,5 +13,5 @@ environment:
 dev_dependencies:
   lints: ^1.0.0
 dependencies: 
-  bloc: ^8.0.4
+  bloc: ^8.0.3
   equatable: ^2.0.3
