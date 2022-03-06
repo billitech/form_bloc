@@ -91,7 +91,7 @@ abstract class FormBloc extends Bloc<FormEvent, FormState> {
 
   onValidationError(FormValidationException error) {
     for (var key in error.error.keys) {
-      var field = fields.firstWhereOrNull((field) => field.name == key);
+      final field = fields.firstWhereOrNull((field) => field.name == key);
       if (field != null) {
         field.emitInputValidationError(error.error[key]);
       }

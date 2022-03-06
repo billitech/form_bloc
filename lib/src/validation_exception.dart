@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class FormValidationException extends Equatable{
 
   final Map<String, String> error;
-  final String  message;
+  final String message;
 
   const FormValidationException({required this.error, required this.message});
 

@@ -22,35 +22,30 @@ abstract class InputBloc<V extends Object, E extends Object>
   }
 
   _onInputChanged(InputChanged<V> event, Emitter<InputState<V, E>> emit) {
-    var error = validate(event.value);
+    final error = validate(event.value);
     emit(state.copyWith(
-      value: event.value,
-       error: error,
-        emptyError: error == null
-    ));
+        value: event.value, error: error, emptyError: error == null));
   }
 
   _onInputUnFocused(InputUnFocused event, Emitter<InputState<V, E>> emit) {
-    var error = validate(state.value);
- emit(state.copyWith(
-        initial: false,
-        error: error,
-        emptyError: error == null
-      ));
+    final error = validate(state.value);
+    emit(state.copyWith(
+        initial: false, error: error, emptyError: error == null));
   }
 
   _onResetInput(ResetInput event, Emitter<InputState<V, E>> emit) {
-     emit(state.copyWith(
-        initial: true,
-        value: initialValue,
-      ));
+    emit(state.copyWith(
+      initial: true,
+      value: initialValue,
+    ));
   }
 
-  _onInputValidationError(InputValidationError event, Emitter<InputState<V, E>> emit) {
+  _onInputValidationError(
+      InputValidationError event, Emitter<InputState<V, E>> emit) {
     emit(state.copyWith(
-        error: event.error,
-        initial: false,
-      ));
+      error: event.error,
+      initial: false,
+    ));
   }
 
   emitInputChanged(V value) {
