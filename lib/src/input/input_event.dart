@@ -10,7 +10,7 @@ abstract class InputEvent extends Equatable {
 class InputChanged<V extends Object> extends InputEvent {
   final V value;
 
-  InputChanged(this.value);
+  const InputChanged(this.value);
 
   @override
   List<Object> get props => [value];
@@ -32,7 +32,7 @@ class ResetInput extends InputEvent {
 class InputValidationError<E> extends InputEvent {
   final E error;
 
-  InputValidationError(this.error);
+  const InputValidationError(this.error);
 
   @override
   List<Object?> get props => [error];
