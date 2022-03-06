@@ -22,17 +22,20 @@ abstract class InputBloc<V extends Object, E extends Object>
   }
 
   _onInputChanged(InputChanged<V> event, Emitter<InputState<V, E>> emit) {
+    var error = validate(event.value);
     emit(state.copyWith(
       value: event.value,
-      initial: false,
-      error: validate(event.value),
+       error: error,
+        emptyError: error == null
     ));
   }
 
   _onInputUnFocused(InputUnFocused event, Emitter<InputState<V, E>> emit) {
+    var error = validate(state.value);
  emit(state.copyWith(
         initial: false,
-        error: validate(state.value),
+        error: error,
+        emptyError: error == null
       ));
   }
 
