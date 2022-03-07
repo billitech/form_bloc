@@ -20,10 +20,10 @@ class InputState<V extends Object, E extends Object> extends Equatable {
 
   get invalid => error != null;
 
-  copyWith({V? value, E? error, bool? initial, bool? emptyError}) {
+  copyWith({V? value, Optional<E?> error = const Optional(), bool? initial}) {
     return InputState(
       value: value ?? _value,
-      error: (emptyError != null && emptyError) ? null : (error ?? _error),
+      error: error.isValid ? error.value : _error,
       initial: initial ?? _initial,
     );
   }

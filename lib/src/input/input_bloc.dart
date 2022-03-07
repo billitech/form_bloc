@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:form_bloc/src/optional.dart';
 
 part 'input_event.dart';
+
 part 'input_state.dart';
 
 abstract class InputBloc<V extends Object, E extends Object>
@@ -22,15 +24,13 @@ abstract class InputBloc<V extends Object, E extends Object>
   }
 
   _onInputChanged(InputChanged<V> event, Emitter<InputState<V, E>> emit) {
-    final error = validate(event.value);
     emit(state.copyWith(
-        value: event.value, error: error, emptyError: error == null));
+        value: event.value, error: Optional.value(validate(event.value))));
   }
 
   _onInputUnFocused(InputUnFocused event, Emitter<InputState<V, E>> emit) {
-    final error = validate(state.value);
     emit(state.copyWith(
-        initial: false, error: error, emptyError: error == null));
+        initial: false, error: Optional.value(validate(state.value))));
   }
 
   _onResetInput(ResetInput event, Emitter<InputState<V, E>> emit) {
