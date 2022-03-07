@@ -99,6 +99,7 @@ abstract class FormBloc extends Bloc<FormEvent, FormState> {
   }
 
   emitValidationError(FormValidationException error) {
+    onValidationError(error);
     add(FormValidationError(error: error));
   }
 
