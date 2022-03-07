@@ -44,4 +44,8 @@ class FormHandlerState<R> extends Equatable {
 
   @override
   List<Object?> get props => [status, successData, error, validationError];
+
+  @override
+  String toString() =>
+      "FormHandlerState { status: $status, isInitial: $isInitial, isLoading: $isLoading, isSuccess: $isSuccess, isFailure: $isFailure, isValidationFailure: $isValidationFailure, error: $error, validationError: $validationError}";
 }
