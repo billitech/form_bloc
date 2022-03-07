@@ -10,7 +10,8 @@ part 'form_event.dart';
 part 'form_state.dart';
 
 abstract class FormBloc extends Bloc<FormEvent, FormState> {
-  List<InputBloc<dynamic, dynamic>> get fields => [];
+
+  List<InputBloc<dynamic, dynamic>> get fields;
 
   final subscriptionsContainer = SubscriptionsContainer();
 
