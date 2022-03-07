@@ -37,4 +37,8 @@ abstract class FormHandlerBloc<F, R>
   }
 
   Future<R> handleFormSubmission(F form);
+
+  emitButtonPressed(F form) {
+    add(ButtonPressed(form));
+  }
 }
